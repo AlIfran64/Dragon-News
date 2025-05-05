@@ -9,7 +9,7 @@ import { Link } from 'react-router';
 const NewsCard = ({ news }) => {
   console.log(news);
 
-  const { author: { img, name }, title, thumbnail_url, details, rating: { number }, total_view } = news
+  const { author: { img, name }, title, thumbnail_url, details, rating: { number }, total_view, id } = news
 
   // for current date:
   const currentDate = news.author.published_date.split('T')[0];
@@ -46,7 +46,7 @@ const NewsCard = ({ news }) => {
         <p className='text-xl font-bold'>{title}</p>
         <img className='w-[750px] h-[370px] my-6 mx-auto rounded-sm' src={thumbnail_url} alt="" />
         <p className='text-justify line-clamp-3'>{details}</p>
-        <Link><button className='text-[#FF8C47] font-semibold cursor-pointer my-2'>Read more</button></Link>
+        <Link to={`/news-details/${id}`}><button className='text-[#FF8C47] font-semibold cursor-pointer my-2'>Read more</button></Link>
 
         <div className='border-b border-b-[#E7E7E7] my-2'></div>
 
